@@ -1,6 +1,6 @@
 package ru.job4j.loop;
 
-public class PrimeNumber {
+public class CheckPrimeNumber {
     public static boolean chek(int number) {
         boolean prime = true;
         if (number == 1) {
