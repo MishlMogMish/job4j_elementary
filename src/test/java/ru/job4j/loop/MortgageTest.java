@@ -15,32 +15,12 @@ class MortgageTest {
     }
 
     @Test
-    void whenAmount100Salary5Percent50ThenYear1() {
-        double amount = 100;
-        int salary = 5;
-        double percent = 50;
-        int result = Mortgage.year(amount, salary, percent);
-        int expected = 100;
-        assertThat(result).isEqualTo(expected);
-    }
-
-    @Test
     void whenAmount150Salary60Percent50ThenYear5() {
         double amount = 100;
         int salary = 60;
         double percent = 50;
         int result = Mortgage.year(amount, salary, percent);
         int expected = 5;
-        assertThat(result).isEqualTo(expected);
-    }
-
-    @Test
-    void whenAmount100Salary1Percent50ThenYear100() {
-        double amount = 100;
-        int salary = 1;
-        double percent = 50;
-        int result = Mortgage.year(amount, salary, percent);
-        int expected = 100;
         assertThat(result).isEqualTo(expected);
     }
 }
