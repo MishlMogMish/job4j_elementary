@@ -15,10 +15,10 @@ class SquareTest {
     }
 
     @Test
-    void whenBound5Then014() {
-        int bound = 5;
+    void whenBound5Then0149() {
+        int bound = 4;
         int[] result = Square.calculate(bound);
-        int[] expected = new  int[] {0, 1, 4, 9, 16};
+        int[] expected = new  int[] {0, 1, 4, 9};
         assertThat(result).containsExactly(expected);
     }
 }
