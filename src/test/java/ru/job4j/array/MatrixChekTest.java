@@ -89,4 +89,59 @@ class MatrixChekTest {
         char[] expected = {'X', 'Y', 'Z'};
         assertThat(result).containsExactly(expected);
     }
+
+    @Test
+    void whenDataNotMonoThenFalse() {
+        char[][] input = {
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', 'X', ' ', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+
+        };
+        boolean result = MatrixChek.isWin(input);
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    void whenDataMonoVerticanThenTrue() {
+        char[][] input = {
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', 'X', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+
+        };
+        boolean result = MatrixChek.isWin(input);
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    void whenDataMonoHorizontalThenTrue() {
+        char[][] input = {
+                {' ', ' ', 'X', ' ', ' '},
+                {'X', 'X', 'X', 'X', 'X'},
+                {' ', 'X', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+
+        };
+        boolean result = MatrixChek.isWin(input);
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    void whenDataOnlyDiagMonoThenFalse() {
+        char[][] input = {
+                {'X', ' ', 'X', ' ', ' '},
+                {' ', 'X', 'X', ' ', ' '},
+                {' ', 'X', 'X', ' ', ' '},
+                {' ', ' ', 'X', 'X', ' '},
+                {' ', ' ', ' ', ' ', 'X'},
+        };
+        boolean result = MatrixChek.isWin(input);
+        assertThat(result).isFalse();
+    }
 }
