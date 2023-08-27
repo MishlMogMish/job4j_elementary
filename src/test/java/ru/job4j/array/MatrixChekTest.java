@@ -53,4 +53,40 @@ class MatrixChekTest {
         boolean result = MatrixChek.monoVertical(input, column);
         assertThat(result).isFalse();
     }
+
+    @Test
+    void whenDiagonalFilledWithX() {
+        char[][] input = {
+                {'X', 'X', ' '},
+                {'X', 'X', ' '},
+                {' ', 'X', 'X'}
+        };
+        char[] result = MatrixChek.extractDiagonal(input);
+        char[] expected = {'X', 'X', 'X'};
+        assertThat(result).containsExactly(expected);
+    }
+
+    @Test
+    void whenDiagonalFilledWith1() {
+        char[][] input = {
+                {'1', 'X', ' '},
+                {'X', '1', ' '},
+                {' ', 'X', '1'}
+        };
+        char[] result = MatrixChek.extractDiagonal(input);
+        char[] expected = {'1', '1', '1'};
+        assertThat(result).containsExactly(expected);
+    }
+
+    @Test
+    void whenDiagonalFilledWithXYZ() {
+        char[][] input = {
+                {'X', 'X', ' '},
+                {'X', 'Y', ' '},
+                {' ', 'X', 'Z'}
+        };
+        char[] result = MatrixChek.extractDiagonal(input);
+        char[] expected = {'X', 'Y', 'Z'};
+        assertThat(result).containsExactly(expected);
+    }
 }
