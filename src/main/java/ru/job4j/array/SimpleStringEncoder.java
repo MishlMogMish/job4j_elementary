@@ -5,22 +5,20 @@ public class SimpleStringEncoder {
         String result = "";
         char symbol = input.charAt(0);
         int counter = 1;
-        int last = input.length() - 1;
         for (int i = 1; i < input.length(); i++) {
-            if (i == last && symbol == input.charAt(i)) {
-                result = addStrings(result, input.charAt(i), counter + 1);
-
-            } else if (i == last && symbol != input.charAt(i)) {
-                result = addStrings(addStrings(result, symbol, counter), input.charAt(i), 1);
-
-            } else if (symbol == input.charAt(i)) {
+            if (symbol == input.charAt(i)) {
                 counter++;
-
             } else {
                 result = addStrings(result, symbol, counter);
                 counter = 1;
             }
             symbol = input.charAt(i);
+        }
+
+        if (counter > 1) {
+            result = addStrings(result, symbol, counter);
+        } else if (symbol != input.charAt(input.length() - 2)) {
+            result = addStrings(result, symbol, 1);
         }
         return result;
     }
