@@ -14,13 +14,7 @@ public class SimpleStringEncoder {
             }
             symbol = input.charAt(i);
         }
-
-        if (counter > 1) {
-            result = addStrings(result, symbol, counter);
-        } else if (symbol != input.charAt(input.length() - 2)) {
-            result = addStrings(result, symbol, 1);
-        }
-        return result;
+        return addLastSymbolsFromInputToResult(input, result, symbol, counter);
     }
 
     public static String addStrings(String rsl, char symbol, int counter) {
@@ -29,5 +23,14 @@ public class SimpleStringEncoder {
         } else {
             return rsl + ("" + symbol) + counter;
         }
+    }
+
+    public static String addLastSymbolsFromInputToResult(String input, String result, char symbol, int counter) {
+        if (counter > 1) {
+            result = addStrings(result, symbol, counter);
+        } else if (symbol != input.charAt(input.length() - 2)) {
+            result = addStrings(result, symbol, 1);
+        }
+        return result;
     }
 }
